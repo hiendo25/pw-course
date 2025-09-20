@@ -12,11 +12,17 @@
 - Restore tất cả file:  
 ```git restore --staged .```
 
-3. **Uncommit - Xóa file khỏi vùng repository (Xóa commit trong commit history)**  
-```git reset HEAD~n ``` 
-> `n` là số commit muốn xóa, tính từ commit xa gốc nhất đổ lại.  
-> 
-*Lưu ý*: Không thể xóa commit gốc. Nếu muốn xóa hoàn toàn, chỉ có cách xóa folder rồi `git init` lại.
+### 3. Uncommit - Xóa file khỏi vùng repository (Xóa commit trong commit history)
+
+`git reset HEAD~n`  
+- `n` là số commit muốn xóa, tính từ commit gần nhất trở về xa.
+
+**Lưu ý:** Không thể xóa commit gốc. Nếu muốn xóa hoàn toàn, chỉ có cách xóa folder rồi `git init` lại.
+
+**Các chế độ reset:**  
+- **--soft:** Xóa commit khỏi repository, đưa file trở lại **staging**. Nếu muốn commit lại, chỉ cần `git commit` mà không cần `git add`.  
+- **--mixed (mặc định):** Xóa commit khỏi repository, file vẫn nằm ở **working directory**, **staging** trống (file đã được di chuyển từ staging lên repo lúc commit). Khác với `--soft` là file không trở lại staging.  
+- **--hard:** Xóa commit khỏi repository, **staging** và **working directory**, xem như file chưa từng tồn tại.
 
 ---
 
@@ -160,3 +166,35 @@ function getMax(a, b) {
 }  
 
 console.log(getMax(20, 12)); // Kết quả: 20  
+ ---
+ ### 7. Object với const
+
+- Khi dùng hằng số hoặc object, **không thể thay object bằng 1 object mới**:  
+  const student = { "name": "alex", "age": 20 }  
+  student = { "name": "Nagi", "age": 18 } → Lỗi
+
+- Nhưng nếu **thay giá trị của thuộc tính trong object** thì hợp lệ:  
+  const student = { "name": "alex", "age": 20 }  
+  student.name = "Nagi"; → Hợp lệ
+
+- **Thêm thuộc tính mới vào object**: dùng dấu `.` hoặc ngoặc vuông `[]`:  
+  let bike = { make: 'Yamaha', model: 'YZF-R3' }  
+  bike.color = "Blue"  
+  bike["price new"] = 100  
+  Kết quả: { make: 'Yamaha', model: 'YZF-R3', color: 'Blue', 'price new': 100 }
+
+- **Xóa thuộc tính của object**: dùng từ khóa `delete`:  
+  let employee = { name: 'Le Van C', age: 30, department: 'HR' }  
+  delete employee.age  
+  Kết quả: { name: 'Le Van C', department: 'HR' }
+
+### 8.push
+
+**Thêm phần tử vào mảng**: sử dụng hàm `push`  
+
+```javascript
+const arr = [1, 2];
+arr.push(3);
+
+console.log(arr);
+[1, 2, 3] //Kết quả sau khi thêm
