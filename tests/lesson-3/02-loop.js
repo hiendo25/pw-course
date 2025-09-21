@@ -1,18 +1,18 @@
 1.
-let n = 100
+let n = 100;
 const sum = (n * (n + 1)) / 2;
 console.log("Tổng từ 1 đến 100 là", sum)
 2.
-for (n = 2; n <= 9; n++) {
-    console.log("Bảng cửu chương", `${n}`, "là")
-    for (i = 1; i <= 10; i++) {
-        console.log(`${n} * ${i} = ${n * i}`)
+for (i = 2; i <= 9; i++) {
+    console.log("Bảng cửu chương", `${i}`, "là")
+    for (j = 1; j <= 10; j++) {
+        console.log(`${i} * ${j} = ${i * j}`)
     }
 }
 3.
 const result3 = [];
 for (let i = 1; i < 100; i++) {
-    if (i % 2 === 1)
+    if (i % 2 !== 0)
         result3.push(i);
 }
 console.log(result3);
