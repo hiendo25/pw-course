@@ -166,7 +166,13 @@ function getMax(a, b) {
 }  
 
 console.log(getMax(20, 12)); // Kết quả: 20  
+
+return chỉ có ý nghĩa trong hàm để gửi giá trị ra ngoài. 
+
+Nếu không cần gửi giá trị đi đâu, hoặc code chạy trực tiếp, không cần return.
+
  ---
+
  ### 7. Object với const
 
 - Khi dùng hằng số hoặc object, **không thể thay object bằng 1 object mới**:  
